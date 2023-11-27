@@ -21,17 +21,18 @@ export default {
     }
   },
   methods: {
-    getStudentById(userId) {
+    getUserById(userId) {
       axios.get(`http://localhost:8080/users/detallado/${userId}`).then(res => {
         this.model.user = res.data;
       }).catch(function (error) {
         // handle error on UI site
       })
     },
-    editStudent() {
+    editUser() {
       axios.put(`http://localhost:8080/users/editar/${this.userId}`, this.model.user)
           .then(res => {
             alert('Student was Edited successful');
+            this.$router.push('/users');
           }).catch(function (error) {
             // handle error on UI site
       })
@@ -39,7 +40,7 @@ export default {
   },
   mounted() {
     this.userId = this.$route.params.id;
-    this.getStudentById(this.userId);
+    this.getUserById(this.userId);
   }
 }
 
@@ -77,7 +78,7 @@ export default {
            <input type="text" v-model="model.user.password" class="form-control"> 
           </div>
           <div class="mb-3">
-            <button type="button" @click="editStudent" class="btn btn-primary">
+            <button type="button" @click="editUser" class="btn btn-primary">
               Edit
             </button>&nbsp;
             <RouterLink to="/users" class="btn btn-primary">

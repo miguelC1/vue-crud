@@ -25,6 +25,7 @@ export default {
       axios.post('http://localhost:8080/users', this.model.user)
         .then(res => {
           alert('User was saved successfully');
+          this.$router.push('/users');
           this.model.user = {
             username: '',
             password: '',

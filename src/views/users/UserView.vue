@@ -56,7 +56,7 @@ export default {
               <th>Last Name</th>
               <th>Email</th>
               <th>Age</th>
-              <th>Card Number</th>
+              <th>fecha Nacimiento</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -67,11 +67,11 @@ export default {
               <td>{{ user.lastName }}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.age }}</td>
-              <td>12548324</td>
+              <td>{{ user.birthDay }}</td>
               <td>
                 <RouterLink :to="{ path: '/users/' + user.id + '/edit' }" class="btn btn-success">
                   Edit
-                </RouterLink>
+                </RouterLink>&nbsp;
                 <button type="button" @click="deleteUserById(user.id)" class="btn btn-danger">
                   Delete
                 </button>
